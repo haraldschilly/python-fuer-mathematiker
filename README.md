@@ -8,6 +8,12 @@ Dies ist eine Einführung in die Programmiersprache [Python](http://www.python.o
 mit einem Fokus auf naturwissenschaftlich/mathematische Inhalte und Anwendungen.
 
 
+Previous Art
+------------
+
+Part of the content is based on 
+[Computing for Mathematics](https://github.com/drvinceknight/Computing_for_mathematics)
+by [Dr. Vince Knight](http://drvinceknight.github.io/).
 
 
 License Note
