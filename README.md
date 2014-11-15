@@ -7,6 +7,13 @@ Ein Schnelleinstieg in Python
 Dies ist eine Einführung in die Programmiersprache [Python](http://www.python.org),
 mit einem Fokus auf naturwissenschaftlich/mathematische Inhalte und Anwendungen.
 
+Online Lesen
+------------
+
+* **[IPython's NBViewer](http://nbviewer.ipython.org/github/haraldschilly/python-fuer-mathematiker/blob/master/doc/00-index.ipynb)**
+
+* Oder auch interaktiv bearbeiten, bei [SageMathCloud](https://cloud.sagemath.com) einfach den Link zu diesem Git Repository im "Add" Menü angeben.
+
 
 Previous Art
 ------------
