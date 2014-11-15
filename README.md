@@ -10,7 +10,7 @@ mit einem Fokus auf naturwissenschaftlich/mathematische Inhalte und Anwendungen.
 Online Lesen
 ------------
 
-* **[IPython's NBViewer](http://nbviewer.ipython.org/github/haraldschilly/python-fuer-mathematiker/blob/master/doc/00-index.ipynb)**
+* **[IPython's NBViewer](http://nbviewer.ipython.org/github/haraldschilly/python-fuer-mathematiker/tree/master/doc/)**
 
 * Oder auch interaktiv bearbeiten, bei [SageMathCloud](https://cloud.sagemath.com) einfach den Link zu diesem Git Repository im "Add" Menü angeben.
 
