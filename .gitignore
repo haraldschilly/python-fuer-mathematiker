@@ -2,6 +2,8 @@
 doc/res/flugzeit.db*
 doc/res/data.pickle
 
+*~
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
