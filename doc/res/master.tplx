@@ -1,0 +1,69 @@
+
+% Default to the notebook output style
+((* if not cell_style is defined *))
+    ((* set cell_style = 'style_ipython.tplx' *))
+((* endif *))
+
+% Inherit from the specified cell style.
+((* extends cell_style *))
+
+
+%===============================================================================
+% Latex Article
+%===============================================================================
+((* block title *))
+\title{Python für Mathematiker}
+((* endblock title *))
+
+((* block author *))
+\author{Harald Schilly}
+((* endblock author *))
+
+((* block margins *))
+\geometry{verbose,tmargin=2cm,bmargin=3cm,lmargin=2cm,rmargin=2cm}
+((* endblock margins *))
+
+((* block packages *))
+((( super() )))
+\usepackage{scrhack}
+\usepackage{python}
+\usepackage{subfiles}
+
+\let\textLaTeX\LaTeX
+\renewcommand*{\LaTeX}{\hbox{\textLaTeX}}
+((* endblock packages *))
+
+((* block docclass *))
+\documentclass[
+    twoside,
+    paper=A4,
+    pagesize,
+    fontsize=11pt,
+    headings=small,
+    %chapterprefix=on,
+    fleqn,
+    toc=flat,
+    bibliography=totoc, %totocnumbered,
+    index=totoc,
+    listof=flat]{scrreprt}
+((* endblock docclass *))
+
+((* block predoc *))
+((( super() )))
+
+\tableofcontents{}
+
+\begin{python}
+from glob import glob
+subfiles = sorted(glob("?-?-*.tex"))
+chap = lastchap = None
+for fn in subfiles:
+  chap = fn[0]
+  if chap != lastchap:
+    print(r'\chapter{' + fn.rsplit('.', 1)[0][4:].title() + '}')
+  print(r'\subfile{' + fn.rsplit('.', 1)[0] + '}')
+  lastchap = chap
+\end{python}
+
+((* endblock predoc *))
+

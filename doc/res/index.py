@@ -35,7 +35,7 @@ def extract_title(cell):
 
 def mk_index():
     out = index_style + u"<div class='index'>"
-    for fn in sorted(glob("*.ipynb")):
+    for fn in sorted(glob("?-?-*.ipynb")):
         with open(fn) as f:
             nb = current.read(f, "ipynb")
             for cell in nb["worksheets"][0]["cells"]:
