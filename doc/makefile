@@ -2,16 +2,15 @@ MASTER="master"
 PARTS_PAT="?-?-*"
 PARTS := $(filter-out $(MASTER).ipynb 0-0-index.ipynb, $(wildcard *.ipynb))
 PARTS_TEX := $(patsubst %.ipynb,%.tex,$(PARTS))
-DEP_FILES := res/partial.tplx res/master.tplx
 
 REVISION := $(shell git rev-parse --short HEAD)
+JOB := python4mathematiker-$(REVISION)
 
 # $(info $(PARTS))
 
-.PHONY = clean latexclean distclean build
+.PHONY = clean latexclean distclean build show
 
-build: $(PARTS_TEX) $(DEP_FILES) pdf
-#  tex_master pdf
+build: pdf
 
 clean:
 	latexmk -c
@@ -19,18 +18,21 @@ clean:
 	rm -f *.tex
 
 # convert all partial tex files
-%.tex: %.ipynb $(DEP_FILES)
+%.tex: %.ipynb res/partial.tplx
 	ipython nbconvert --template res/partial.tplx --to latex $<
 
 # convert the (empty) master file
-tex_master: master.ipynb $(DEP_FILES)
+tex_master: master.ipynb $(PARTS_TEX) res/master.tplx
 	ipython nbconvert --template res/master.tplx --to latex $(MASTER).ipynb
 
 pdf: tex_master
-	latexmk -pdf -jobname="python4mathematiker" -pdflatex="pdflatex --shell-escape %O %S" $(MASTER).tex
+	latexmk -pdf -jobname="$(JOB)" -pdflatex="pdflatex --shell-escape %O %S" $(MASTER).tex
 
 latexclean:
 	latexmk -C
 
 distclean:
 	git clean -fdX
+
+show: pdf
+	xdg-open $(JOB).pdf
