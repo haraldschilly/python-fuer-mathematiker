@@ -24,14 +24,58 @@
 ((* endblock date *))
 
 ((* block margins *))
-\geometry{verbose,tmargin=2cm,bmargin=3cm,lmargin=2cm,rmargin=2cm}
+\geometry{verbose,tmargin=1.5cm,bmargin=2cm,lmargin=1.5cm,rmargin=1.5cm,includeheadfoot}
 ((* endblock margins *))
+
+((* block maketitle *))
+	\begin{titlepage}
+	\begin{center}
+        \vspace{1.5cm}
+	\includegraphics[width=0.7\textwidth]{res/python-logo.pdf}  \\[10pt]
+         {\Huge\bfseries für}                                       \\[15pt]
+	 {\fontsize{1.5cm}{1em}\bfseries Mathematiker/innen}        \\[5pt]
+	 % ----------------------------------------------------------------
+	 \vspace{2.5cm}
+	 {\huge{\bfseries Harald Schilly}}         \\[5pt]
+	 \textsc{harald.schilly+pp@univie.ac.at}        \\[14pt]
+
+	 %\vspace{0.5cm}
+	 %{\huge\bfseries Martin Piskernig}       \\[5pt]
+	 %martin.piskernig+pp@univie.ac.at         \\[14pt]
+	  % ----------------------------------------------------------------
+	 \vspace{8cm}
+
+	 \textsc{\Large{Institut für Mathematik}} \\[15pt]
+	 \textsc{\Large{Universität Wien}}        \\[4cm]
+
+	% \textsc{\Large{{Doctor of Philosophy}}} \\[5pt]
+	% {in some subject} \vspace{0.4cm} \\[2cm]
+	% {By}\\[5pt] {\Large \sc {Me}}
+	 
+	 % ----------------------------------------------------------------
+	\vfill
+	\textsc{\Large{Sommersemester 2014}}\\[5pt]
+
+	% {Wien}
+	\end{center}
+	\end{titlepage}
+((* endblock maketitle *))
 
 ((* block packages *))
 ((( super() )))
 \usepackage{scrhack}
 \usepackage{python}
 \usepackage{subfiles}
+
+\usepackage[automark,headsepline,ilines,komastyle]{scrpage2}
+\pagestyle{scrheadings}
+
+% http://www.komascript.de/node/1239
+\usepackage{bigfoot}
+\raggedbottom
+\newcommand*\origfootnoterule{}
+\let\origfootnoterule\footnoterule
+\renewcommand*{\footnoterule}{\vskip 0pt plus .01fil\origfootnoterule}
 
 % font tweaks
 \usepackage{ellipsis,ragged2e,marginnote}
@@ -45,6 +89,17 @@
 
 \let\textLaTeX\LaTeX
 \renewcommand*{\LaTeX}{\hbox{\textLaTeX}}
+
+\newcommand*{\licenseinfo}{
+	\begin{center}
+	{\bfseries License:} This work is covered by                           \\[10pt]
+	{\bfseries Creative Commons: Attribution-ShareAlike 4.0 International} \\[10pt]
+	{\bfseries (CC BY-SA 4.0)}                                             \\[10pt]
+	\url{https://creativecommons.org/licenses/by-sa/4.0/}                  \\[15pt]
+	\includegraphics[width=0.2\textwidth]{res/cc-by-sa.png}
+	\end{center}
+}
+
 ((* endblock packages *))
 
 ((* block docclass *))
@@ -63,11 +118,15 @@
 ((* endblock docclass *))
 
 ((* block predoc *))
+\thispagestyle{empty}
+\KOMAoptions{open=right}
+
 ((( super() )))
 
+\thispagestyle{empty}
 \subsection*{Build Information}
 \begin{python}
-print(r'\begin{Verbatim}[fontsize=\small]')
+print(r'\begin{Verbatim}[fontsize=\normalsize]')
 from subprocess import check_output
 t = check_output(['date', '--iso-8601=minutes'])
 print(r'Build time:     ' + t[:-1])
@@ -91,6 +150,11 @@ print("Pandas:         " + pandas.__version__)
 print(r'\end{Verbatim}')
 \end{python}
 
+\vfill
+
+\licenseinfo{}
+
+
 \tableofcontents{}
 
 \begin{python}
@@ -107,3 +171,10 @@ for fn in subfiles:
 
 ((* endblock predoc *))
 
+
+((* block postdoc *))
+	((( super() )))
+        \newpage
+        \vfill
+	\licenseinfo{}
+((* endblock postdoc *))
