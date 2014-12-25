@@ -10,7 +10,7 @@ PARTS_PAT="?-?-*"
 PARTS := $(filter-out $(MASTER).ipynb 0-0-index.ipynb, $(wildcard *.ipynb))
 PARTS_TEX := $(patsubst %.ipynb,%.tex,$(PARTS))
 REVISION := $(shell git rev-parse --short HEAD)
-JOB := python4mathematiker-$(REVISION)
+JOB := python4mathematiker
 LATEXCMD := -pdf -jobname="$(JOB)" -pdflatex="pdflatex --shell-escape %O %S" $(MASTER).tex
 
 # $(info $(PARTS))

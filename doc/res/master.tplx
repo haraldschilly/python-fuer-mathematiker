@@ -11,17 +11,6 @@
 %===============================================================================
 % Latex Article
 %===============================================================================
-((* block title *))
-\title{Python für Mathematiker}
-((* endblock title *))
-
-((* block author *))
-\author{Harald Schilly}
-((* endblock author *))
-
-((* block date *))
-\date{Frühjahr 2014}
-((* endblock date *))
 
 ((* block margins *))
 \geometry{verbose,tmargin=1.5cm,bmargin=2cm,lmargin=1.5cm,rmargin=1.5cm,includeheadfoot}
@@ -52,6 +41,7 @@
 \renewcommand{\familydefault}{\sfdefault}
 \setkomafont{sectioning}{\normalcolor\bfseries}
 \setkomafont{disposition}{\normalcolor\bfseries}
+\usepackage{eurosym}
 
 \let\textLaTeX\LaTeX
 \renewcommand*{\LaTeX}{\hbox{\textLaTeX}}
@@ -65,6 +55,16 @@
 	\includegraphics[width=0.2\textwidth]{res/cc-by-sa.png}
 	\end{center}
 }
+
+% PDF info fields
+\usepackage{ifpdf}
+\ifpdf
+\pdfinfo{
+  /Author (Harald Schilly)
+  /Title (Python für Mathematiker/innen)
+  /Keywords (Python,Programmieren)
+}
+\fi
 
 ((* endblock packages *))
 
@@ -80,6 +80,7 @@
     toc=flat,
     bibliography=totoc, %totocnumbered,
     index=totoc,
+    parskip=half,
     listof=flat]{scrreprt}
 ((* endblock docclass *))
 
@@ -91,7 +92,7 @@
     \begin{center}
     \vspace{1.5cm}
     \includegraphics[width=0.7\textwidth]{res/python-logo.pdf}  \\[10pt]
-     {\Huge\bfseries für}                                       \\[15pt]
+     {\Huge\bfseries für}                                       \\[25pt]
      {\fontsize{1.5cm}{1em}\bfseries Mathematiker/innen}        \\[5pt]
      % ----------------------------------------------------------------
      \vspace{2.5cm}
@@ -162,7 +163,7 @@ chap = lastchap = None
 for fn in subfiles:
   chap = fn[0]
   if chap != lastchap:
-    print(r'\chapter{' + fn.rsplit('.', 1)[0][4:].title() + '}')
+    print(r'\chapter{' + fn.rsplit('.', 1)[0][4:].replace("_"," ").title() + '}')
   print(r'\subfile{' + fn.rsplit('.', 1)[0] + '}')
   lastchap = chap
 \end{python}
