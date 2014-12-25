@@ -3,6 +3,7 @@
 # make clean:      cleanup temporary latex files and remove auxiliary directories
 # make distclean:  use git's clean command to get rid of ALL files
 # make show:       use xdg-open to open pdf file
+# make nb:         start the IPython Notebook server
 
 MASTER="master"
 PARTS_PAT="?-?-*"
@@ -42,3 +43,6 @@ distclean:
 
 show: pdf
 	xdg-open $(JOB).pdf
+
+nb:
+	ipython notebook --no-browser
