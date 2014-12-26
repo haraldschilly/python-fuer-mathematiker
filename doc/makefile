@@ -5,8 +5,8 @@
 # make show:       use xdg-open to open pdf file
 # make nb:         start the IPython Notebook server
 
-MASTER="master"
-PARTS_PAT="?-?-*"
+MASTER=master
+PARTS_PAT=?-?-*
 PARTS := $(filter-out $(MASTER).ipynb 0-0-index.ipynb, $(wildcard *.ipynb))
 PARTS_TEX := $(patsubst %.ipynb,%.tex,$(PARTS))
 REVISION := $(shell git rev-parse --short HEAD)
@@ -29,11 +29,11 @@ clean:
 	ipython nbconvert --template res/partial.tplx --to latex $<
 
 # convert the (empty) master file
-tex_master: master.ipynb $(PARTS_TEX) res/master.tplx
+$(JOB).pdf: master.ipynb $(PARTS_TEX) res/master.tplx
 	ipython nbconvert --template res/master.tplx --to latex $(MASTER).ipynb
-
-pdf: tex_master
 	latexmk $(LATEXCMD)
+
+pdf: $(JOB).pdf
 
 latexclean:
 	latexmk -C
