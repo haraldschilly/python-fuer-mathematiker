@@ -5,6 +5,7 @@
 # make show:       use xdg-open to open pdf file
 # make nb:         start the IPython Notebook server
 # make all:        unconditionally build all (default) targets
+#                  (if it doesn't resolve the problem, do a healthy make distclean; make)
 
 MASTER=master
 PARTS_PAT=?-?-*
