@@ -1,9 +1,10 @@
 # makefile options
-# make (plain):    build pdf
+# make (default):  build pdf
 # make clean:      cleanup temporary latex files and remove auxiliary directories
 # make distclean:  use git's clean command to get rid of ALL files
 # make show:       use xdg-open to open pdf file
 # make nb:         start the IPython Notebook server
+# make all:        unconditionally build all (default) targets
 
 MASTER=master
 PARTS_PAT=?-?-*
@@ -46,3 +47,6 @@ show: pdf
 
 nb:
 	ipython notebook --no-browser
+
+all:
+	make -B
