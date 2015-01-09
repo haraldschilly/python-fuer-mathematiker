@@ -157,24 +157,38 @@
 print(r'\begin{Verbatim}[fontsize=\normalsize]')
 from subprocess import check_output
 t = check_output(['date', '--iso-8601=minutes'])
-print(r'Build time:     ' + t[:-1])
-print(r'Hostname:       ' + check_output(['hostname'])[:-1])
+print(r'Build time:      ' + t[:-1])
+print(r'Hostname:        ' + check_output(['hostname'])[:-1])
 x = check_output(['git', 'rev-parse', 'HEAD'])
-print("Git HEAD:       " + x[:-1])
-print("Repository:     https://github.com/haraldschilly/python-fuer-mathematiker")
+print("Git HEAD:        " + x[:-1])
+print("Repository:      https://github.com/haraldschilly/python-fuer-mathematiker")
+print("PDFLaTeX:        " + check_output(['pdflatex', '--version']).splitlines()[0])
 import sys
-print("Python:         " + sys.version.splitlines()[0])
-print("                " + sys.version.splitlines()[1])
-import numpy
-print("NumPy:          " + numpy.__version__)
-import scipy
-print("SciPy:          " + scipy.__version__)
-import matplotlib
-print("Matplotlib:     " + matplotlib.__version__)
-import sympy
-print("SymPy:          " + sympy.__version__)
-import pandas
-print("Pandas:         " + pandas.__version__)
+print("Python:          " + sys.version.splitlines()[0])
+print("                 " + sys.version.splitlines()[1])
+libs = [("NumPy", "numpy"),
+        ("SciPy", "scipy"),
+        ("Matplotlib", "matplotlib"),
+        ("SymPy", "sympy"),
+        ("mpmath", "mpmath"),
+        ("Pandas", "pandas"),
+        ("Statsmodels", "statsmodels"),
+        ("scikit-learn", "sklearn"),
+        ("scikit-image", "skimage"),
+        ("NetworkX", "networkx"),
+        ("YAML", "yaml"),
+        ("JSON", "json"),
+        ("CSV", "csv"),
+        ("SQLite3", "sqlite3"),
+        ("Cython", "cython")]
+import importlib
+for name, libname in libs:
+    lib = importlib.import_module(libname)
+    try:
+        vers = lib.__version__
+    except:
+        vers = lib.version
+    print("{:16s} {}".format(name + ":", vers))
 print(r'\end{Verbatim}')
 \end{python}
 
