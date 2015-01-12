@@ -13,7 +13,17 @@
 %===============================================================================
 
 ((* block margins *))
-\geometry{verbose,tmargin=1.5cm,bmargin=2cm,lmargin=1.5cm,rmargin=1.5cm,includeheadfoot}
+\geometry{
+    verbose,
+    %scale=0.85,
+    twoside,
+    bindingoffset=.5cm,
+    includeheadfoot,
+    tmargin=1.5cm,
+    bmargin=2cm,
+    lmargin=1.5cm,
+    rmargin=1.5cm,
+}
 ((* endblock margins *))
 
 ((* block packages *))
