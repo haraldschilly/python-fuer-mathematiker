@@ -41,7 +41,7 @@ latexclean:
 	latexmk -C
 
 distclean:
-	git clean -fdX
+	git clean -fdX .
 
 show: pdf
 	xdg-open $(JOB).pdf
