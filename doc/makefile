@@ -1,6 +1,7 @@
 # makefile options
 # make (default):  build pdf
-# make clean:      cleanup temporary latex files and remove auxiliary directories
+# make clean:      cleanup temporary latex files
+# make latexclean: remove latex files and auxiliary directories
 # make distclean:  use git's clean command to get rid of ALL files
 # make show:       use xdg-open to open pdf file
 # make nb:         start the IPython Notebook server
@@ -13,7 +14,6 @@ PARTS := $(filter-out $(MASTER).ipynb 0-0-index.ipynb, $(wildcard *.ipynb))
 PARTS_TEX := $(patsubst %.ipynb,%.tex,$(PARTS))
 REVISION := $(shell git rev-parse --short HEAD)
 JOB := python4mathematiker
-LATEXCMD := -pdf -jobname="$(JOB)" -pdflatex="pdflatex --shell-escape %O %S" $(MASTER).tex
 
 # $(info $(PARTS))
 
@@ -23,8 +23,6 @@ build: pdf
 
 clean:
 	latexmk -c
-	find -type d -name "$(PARTS_PAT)" | xargs rm -rf
-	rm -f *.tex
 
 # convert all partial tex files
 %.tex: %.ipynb res/partial.tplx
@@ -33,15 +31,18 @@ clean:
 # convert the (empty) master file
 $(JOB).pdf: master.ipynb $(PARTS_TEX) res/master.tplx
 	ipython nbconvert --template res/master.tplx --to latex $(MASTER).ipynb
-	latexmk $(LATEXCMD)
+	latexmk -pdf -jobname="$(JOB)" -pdflatex="pdflatex --shell-escape %O %S" $(MASTER).tex
 
 pdf: $(JOB).pdf
 
 latexclean:
 	latexmk -C
+	find -type d -name "$(PARTS_PAT)" | xargs rm -rf
+	-${RM} -f *.tex
 
 distclean:
-	git clean -fdX .
+	-git clean -fdX .
+	-${RM} -f *.tex
 
 show: pdf
 	xdg-open $(JOB).pdf
