@@ -10,6 +10,7 @@
 
 MASTER=master
 PARTS_PAT=?-?-*
+IPYTHON ?= ipython
 PARTS := $(filter-out $(MASTER).ipynb 0-0-index.ipynb, $(wildcard *.ipynb))
 PARTS_TEX := $(patsubst %.ipynb,%.tex,$(PARTS))
 REVISION := $(shell git rev-parse --short HEAD)
@@ -26,11 +27,11 @@ clean:
 
 # convert all partial tex files
 %.tex: %.ipynb res/partial.tplx
-	ipython nbconvert --template res/partial.tplx --to latex $<
+	$(IPYTHON) nbconvert --template res/partial.tplx --to latex $<
 
 # convert the (empty) master file
 $(JOB).pdf: master.ipynb $(PARTS_TEX) res/master.tplx
-	ipython nbconvert --template res/master.tplx --to latex $(MASTER).ipynb
+	$(IPYTHON) nbconvert --template res/master.tplx --to latex $(MASTER).ipynb
 	latexmk -pdf -jobname="$(JOB)" -pdflatex="pdflatex --shell-escape %O %S" $(MASTER).tex
 
 pdf: $(JOB).pdf
@@ -48,7 +49,7 @@ show: pdf
 	xdg-open $(JOB).pdf
 
 nb:
-	ipython notebook --no-browser
+	$(IPYTHON) notebook --no-browser
 
 all:
 	make -B
