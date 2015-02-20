@@ -190,6 +190,7 @@ libs = [("NumPy", "numpy"),
         ("JSON", "json"),
         ("CSV", "csv"),
         ("SQLite3", "sqlite3"),
+        ("BeautifulSoup", "bs4"),
         ("Cython", "cython")]
 import importlib
 for name, libname in libs:
