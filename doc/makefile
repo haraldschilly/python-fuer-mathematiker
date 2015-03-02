@@ -6,15 +6,17 @@
 # make show:       use xdg-open to open pdf file
 # make nb:         start the IPython Notebook server
 # make all:        unconditionally build all (default) targets
+# make dist:       build the pdf distribution: copy pdf to a filename with date and $REVISION
 #                  (if it doesn't resolve the problem, do a healthy make distclean; make)
 
 MASTER=master
-PARTS_PAT=?-?-*
-IPYTHON ?= ipython
-PARTS := $(filter-out $(MASTER).ipynb 0-0-index.ipynb, $(wildcard *.ipynb))
-PARTS_TEX := $(patsubst %.ipynb,%.tex,$(PARTS))
-REVISION := $(shell git rev-parse --short HEAD)
-JOB := python4mathematiker
+PARTS_PAT  =?-?-*
+IPYTHON    ?= ipython
+PARTS      := $(filter-out $(MASTER).ipynb 0-0-index.ipynb, $(wildcard *.ipynb))
+PARTS_TEX  := $(patsubst %.ipynb,%.tex,$(PARTS))
+REVISION   := $(shell git rev-parse --short HEAD)
+TIMESTAMP  := $(shell date +"%Y%m%d")
+JOB        := python4mathematiker
 
 # $(info $(PARTS))
 
@@ -53,3 +55,7 @@ nb:
 
 all:
 	make -B
+
+dist: pdf
+	cp $(JOB).pdf $(JOB)-${TIMESTAMP}-${REVISION}.pdf
+
