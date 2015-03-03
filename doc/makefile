@@ -20,9 +20,10 @@ JOB        := python4mathematiker
 
 # $(info $(PARTS))
 
-.PHONY = clean latexclean distclean build show cont
+.PHONY = clean latexclean distclean build show cont upload
 
-build: pdf
+build:
+	$(MAKE) -j 4 pdf
 
 clean:
 	latexmk -c
@@ -59,3 +60,5 @@ all:
 dist: pdf
 	cp $(JOB).pdf $(JOB)-${TIMESTAMP}-${REVISION}.pdf
 
+upload: pdf
+	scp $(JOB).pdf schilly@login.mat.univie.ac.at:/users/schilly/public_html/
