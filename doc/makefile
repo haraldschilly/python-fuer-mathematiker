@@ -48,7 +48,7 @@ distclean:
 	-git clean -fdX .
 	-${RM} -f *.tex
 
-show: pdf
+show: build 
 	xdg-open $(JOB).pdf
 
 nb:
@@ -57,8 +57,8 @@ nb:
 all:
 	make -B
 
-dist: pdf
+dist: build
 	cp $(JOB).pdf $(JOB)-${TIMESTAMP}-${REVISION}.pdf
 
-upload: pdf
+upload: build
 	scp $(JOB).pdf schilly@login.mat.univie.ac.at:/users/schilly/public_html/
