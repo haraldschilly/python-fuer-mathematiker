@@ -171,7 +171,8 @@ print("PDFLaTeX:        " + check_output(['pdflatex', '--version']).splitlines()
 import sys
 print("Python:          " + sys.version.splitlines()[0])
 print("                 " + sys.version.splitlines()[1])
-libs = [("NumPy", "numpy"),
+libs = [("IPython", "IPython"),
+        ("NumPy", "numpy"),
         ("SciPy", "scipy"),
         ("Matplotlib", "matplotlib"),
         ("SymPy", "sympy"),
