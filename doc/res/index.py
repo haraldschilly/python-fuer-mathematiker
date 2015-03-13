@@ -2,7 +2,7 @@
 # coding: utf8
 from glob import glob
 from IPython.display import HTML
-from IPython.nbformat import current
+from IPython.nbformat import v4 as current
 
 index_style = """
 <style>
