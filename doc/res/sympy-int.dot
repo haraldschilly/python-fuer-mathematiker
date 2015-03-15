@@ -8,24 +8,21 @@ digraph{
 # Nodes #
 #########
 
-"Integral(Mul(Add(Integer(2), Mul(Integer(2), Symbol(x))), Pow(Add(One(), Mul(NegativeOne(), Pow(Add(One(), Symbol(x)), Integer(2)))), NegativeOne())), Tuple(Symbol(x)))_()" ["color"="black", "label"="Integral", "shape"="ellipse"];
-"Mul(Add(Integer(2), Mul(Integer(2), Symbol(x))), Pow(Add(One(), Mul(NegativeOne(), Pow(Add(One(), Symbol(x)), Integer(2)))), NegativeOne()))_(0,)" ["color"="black", "label"="Mul", "shape"="ellipse"];
-"Pow(Add(One(), Mul(NegativeOne(), Pow(Add(One(), Symbol(x)), Integer(2)))), NegativeOne())_(0, 0)" ["color"="black", "label"="Pow", "shape"="ellipse"];
-"Add(One(), Mul(NegativeOne(), Pow(Add(One(), Symbol(x)), Integer(2))))_(0, 0, 0)" ["color"="black", "label"="Add", "shape"="ellipse"];
-"One()_(0, 0, 0, 0)" ["color"="black", "label"="1", "shape"="ellipse"];
-"Mul(NegativeOne(), Pow(Add(One(), Symbol(x)), Integer(2)))_(0, 0, 0, 1)" ["color"="black", "label"="Mul", "shape"="ellipse"];
+"Integral(Mul(Pow(Add(Integer(4), Mul(NegativeOne(), Pow(Symbol(y), Integer(2)))), NegativeOne()), Add(One(), Symbol(x), Symbol(y))), Tuple(Symbol(x)))_()" ["color"="black", "label"="Integral", "shape"="ellipse"];
+"Mul(Pow(Add(Integer(4), Mul(NegativeOne(), Pow(Symbol(y), Integer(2)))), NegativeOne()), Add(One(), Symbol(x), Symbol(y)))_(0,)" ["color"="black", "label"="Mul", "shape"="ellipse"];
+"Pow(Add(Integer(4), Mul(NegativeOne(), Pow(Symbol(y), Integer(2)))), NegativeOne())_(0, 0)" ["color"="black", "label"="Pow", "shape"="ellipse"];
+"Add(Integer(4), Mul(NegativeOne(), Pow(Symbol(y), Integer(2))))_(0, 0, 0)" ["color"="black", "label"="Add", "shape"="ellipse"];
+"Integer(4)_(0, 0, 0, 0)" ["color"="black", "label"="4", "shape"="ellipse"];
+"Mul(NegativeOne(), Pow(Symbol(y), Integer(2)))_(0, 0, 0, 1)" ["color"="black", "label"="Mul", "shape"="ellipse"];
 "NegativeOne()_(0, 0, 0, 1, 0)" ["color"="black", "label"="-1", "shape"="ellipse"];
-"Pow(Add(One(), Symbol(x)), Integer(2))_(0, 0, 0, 1, 1)" ["color"="black", "label"="Pow", "shape"="ellipse"];
-"Add(One(), Symbol(x))_(0, 0, 0, 1, 1, 0)" ["color"="black", "label"="Add", "shape"="ellipse"];
-"One()_(0, 0, 0, 1, 1, 0, 0)" ["color"="black", "label"="1", "shape"="ellipse"];
-"Symbol(x)_(0, 0, 0, 1, 1, 0, 1)" ["color"="black", "label"="x", "shape"="ellipse"];
+"Pow(Symbol(y), Integer(2))_(0, 0, 0, 1, 1)" ["color"="black", "label"="Pow", "shape"="ellipse"];
+"Symbol(y)_(0, 0, 0, 1, 1, 0)" ["color"="black", "label"="y", "shape"="ellipse"];
 "Integer(2)_(0, 0, 0, 1, 1, 1)" ["color"="black", "label"="2", "shape"="ellipse"];
 "NegativeOne()_(0, 0, 1)" ["color"="black", "label"="-1", "shape"="ellipse"];
-"Add(Integer(2), Mul(Integer(2), Symbol(x)))_(0, 1)" ["color"="black", "label"="Add", "shape"="ellipse"];
-"Integer(2)_(0, 1, 0)" ["color"="black", "label"="2", "shape"="ellipse"];
-"Mul(Integer(2), Symbol(x))_(0, 1, 1)" ["color"="black", "label"="Mul", "shape"="ellipse"];
-"Integer(2)_(0, 1, 1, 0)" ["color"="black", "label"="2", "shape"="ellipse"];
-"Symbol(x)_(0, 1, 1, 1)" ["color"="black", "label"="x", "shape"="ellipse"];
+"Add(One(), Symbol(x), Symbol(y))_(0, 1)" ["color"="black", "label"="Add", "shape"="ellipse"];
+"One()_(0, 1, 0)" ["color"="black", "label"="1", "shape"="ellipse"];
+"Symbol(x)_(0, 1, 1)" ["color"="black", "label"="x", "shape"="ellipse"];
+"Symbol(y)_(0, 1, 2)" ["color"="black", "label"="y", "shape"="ellipse"];
 "Tuple(Symbol(x))_(1,)" ["color"="blue", "label"="Tuple", "shape"="ellipse"];
 "Symbol(x)_(1, 0)" ["color"="black", "label"="x", "shape"="ellipse"];
 
@@ -33,23 +30,20 @@ digraph{
 # Edges #
 #########
 
-"Integral(Mul(Add(Integer(2), Mul(Integer(2), Symbol(x))), Pow(Add(One(), Mul(NegativeOne(), Pow(Add(One(), Symbol(x)), Integer(2)))), NegativeOne())), Tuple(Symbol(x)))_()" -> "Mul(Add(Integer(2), Mul(Integer(2), Symbol(x))), Pow(Add(One(), Mul(NegativeOne(), Pow(Add(One(), Symbol(x)), Integer(2)))), NegativeOne()))_(0,)";
-"Integral(Mul(Add(Integer(2), Mul(Integer(2), Symbol(x))), Pow(Add(One(), Mul(NegativeOne(), Pow(Add(One(), Symbol(x)), Integer(2)))), NegativeOne())), Tuple(Symbol(x)))_()" -> "Tuple(Symbol(x))_(1,)";
-"Mul(Add(Integer(2), Mul(Integer(2), Symbol(x))), Pow(Add(One(), Mul(NegativeOne(), Pow(Add(One(), Symbol(x)), Integer(2)))), NegativeOne()))_(0,)" -> "Pow(Add(One(), Mul(NegativeOne(), Pow(Add(One(), Symbol(x)), Integer(2)))), NegativeOne())_(0, 0)";
-"Mul(Add(Integer(2), Mul(Integer(2), Symbol(x))), Pow(Add(One(), Mul(NegativeOne(), Pow(Add(One(), Symbol(x)), Integer(2)))), NegativeOne()))_(0,)" -> "Add(Integer(2), Mul(Integer(2), Symbol(x)))_(0, 1)";
-"Pow(Add(One(), Mul(NegativeOne(), Pow(Add(One(), Symbol(x)), Integer(2)))), NegativeOne())_(0, 0)" -> "Add(One(), Mul(NegativeOne(), Pow(Add(One(), Symbol(x)), Integer(2))))_(0, 0, 0)";
-"Pow(Add(One(), Mul(NegativeOne(), Pow(Add(One(), Symbol(x)), Integer(2)))), NegativeOne())_(0, 0)" -> "NegativeOne()_(0, 0, 1)";
-"Add(One(), Mul(NegativeOne(), Pow(Add(One(), Symbol(x)), Integer(2))))_(0, 0, 0)" -> "One()_(0, 0, 0, 0)";
-"Add(One(), Mul(NegativeOne(), Pow(Add(One(), Symbol(x)), Integer(2))))_(0, 0, 0)" -> "Mul(NegativeOne(), Pow(Add(One(), Symbol(x)), Integer(2)))_(0, 0, 0, 1)";
-"Mul(NegativeOne(), Pow(Add(One(), Symbol(x)), Integer(2)))_(0, 0, 0, 1)" -> "NegativeOne()_(0, 0, 0, 1, 0)";
-"Mul(NegativeOne(), Pow(Add(One(), Symbol(x)), Integer(2)))_(0, 0, 0, 1)" -> "Pow(Add(One(), Symbol(x)), Integer(2))_(0, 0, 0, 1, 1)";
-"Pow(Add(One(), Symbol(x)), Integer(2))_(0, 0, 0, 1, 1)" -> "Add(One(), Symbol(x))_(0, 0, 0, 1, 1, 0)";
-"Pow(Add(One(), Symbol(x)), Integer(2))_(0, 0, 0, 1, 1)" -> "Integer(2)_(0, 0, 0, 1, 1, 1)";
-"Add(One(), Symbol(x))_(0, 0, 0, 1, 1, 0)" -> "One()_(0, 0, 0, 1, 1, 0, 0)";
-"Add(One(), Symbol(x))_(0, 0, 0, 1, 1, 0)" -> "Symbol(x)_(0, 0, 0, 1, 1, 0, 1)";
-"Add(Integer(2), Mul(Integer(2), Symbol(x)))_(0, 1)" -> "Integer(2)_(0, 1, 0)";
-"Add(Integer(2), Mul(Integer(2), Symbol(x)))_(0, 1)" -> "Mul(Integer(2), Symbol(x))_(0, 1, 1)";
-"Mul(Integer(2), Symbol(x))_(0, 1, 1)" -> "Integer(2)_(0, 1, 1, 0)";
-"Mul(Integer(2), Symbol(x))_(0, 1, 1)" -> "Symbol(x)_(0, 1, 1, 1)";
+"Integral(Mul(Pow(Add(Integer(4), Mul(NegativeOne(), Pow(Symbol(y), Integer(2)))), NegativeOne()), Add(One(), Symbol(x), Symbol(y))), Tuple(Symbol(x)))_()" -> "Mul(Pow(Add(Integer(4), Mul(NegativeOne(), Pow(Symbol(y), Integer(2)))), NegativeOne()), Add(One(), Symbol(x), Symbol(y)))_(0,)";
+"Integral(Mul(Pow(Add(Integer(4), Mul(NegativeOne(), Pow(Symbol(y), Integer(2)))), NegativeOne()), Add(One(), Symbol(x), Symbol(y))), Tuple(Symbol(x)))_()" -> "Tuple(Symbol(x))_(1,)";
+"Mul(Pow(Add(Integer(4), Mul(NegativeOne(), Pow(Symbol(y), Integer(2)))), NegativeOne()), Add(One(), Symbol(x), Symbol(y)))_(0,)" -> "Pow(Add(Integer(4), Mul(NegativeOne(), Pow(Symbol(y), Integer(2)))), NegativeOne())_(0, 0)";
+"Mul(Pow(Add(Integer(4), Mul(NegativeOne(), Pow(Symbol(y), Integer(2)))), NegativeOne()), Add(One(), Symbol(x), Symbol(y)))_(0,)" -> "Add(One(), Symbol(x), Symbol(y))_(0, 1)";
+"Pow(Add(Integer(4), Mul(NegativeOne(), Pow(Symbol(y), Integer(2)))), NegativeOne())_(0, 0)" -> "Add(Integer(4), Mul(NegativeOne(), Pow(Symbol(y), Integer(2))))_(0, 0, 0)";
+"Pow(Add(Integer(4), Mul(NegativeOne(), Pow(Symbol(y), Integer(2)))), NegativeOne())_(0, 0)" -> "NegativeOne()_(0, 0, 1)";
+"Add(Integer(4), Mul(NegativeOne(), Pow(Symbol(y), Integer(2))))_(0, 0, 0)" -> "Integer(4)_(0, 0, 0, 0)";
+"Add(Integer(4), Mul(NegativeOne(), Pow(Symbol(y), Integer(2))))_(0, 0, 0)" -> "Mul(NegativeOne(), Pow(Symbol(y), Integer(2)))_(0, 0, 0, 1)";
+"Mul(NegativeOne(), Pow(Symbol(y), Integer(2)))_(0, 0, 0, 1)" -> "NegativeOne()_(0, 0, 0, 1, 0)";
+"Mul(NegativeOne(), Pow(Symbol(y), Integer(2)))_(0, 0, 0, 1)" -> "Pow(Symbol(y), Integer(2))_(0, 0, 0, 1, 1)";
+"Pow(Symbol(y), Integer(2))_(0, 0, 0, 1, 1)" -> "Symbol(y)_(0, 0, 0, 1, 1, 0)";
+"Pow(Symbol(y), Integer(2))_(0, 0, 0, 1, 1)" -> "Integer(2)_(0, 0, 0, 1, 1, 1)";
+"Add(One(), Symbol(x), Symbol(y))_(0, 1)" -> "One()_(0, 1, 0)";
+"Add(One(), Symbol(x), Symbol(y))_(0, 1)" -> "Symbol(x)_(0, 1, 1)";
+"Add(One(), Symbol(x), Symbol(y))_(0, 1)" -> "Symbol(y)_(0, 1, 2)";
 "Tuple(Symbol(x))_(1,)" -> "Symbol(x)_(1, 0)";
 }
