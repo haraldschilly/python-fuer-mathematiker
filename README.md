@@ -32,3 +32,6 @@ All text, images, media and code examples are covered by
 The only exception are full Python codefiles,
 where their License is either explained in their respective headers or in absence of that,
 defaults to [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
+
+[![Analytics](https://ga-beacon.appspot.com/UA-5245376-11/python-fuer-mathematiker?flat)](https://github.com/igrigorik/ga-beacon)
+
