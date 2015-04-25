@@ -85,8 +85,8 @@
 
 \newcommand*{\licenseinfo}{
 	\begin{center}
-    \includegraphics[width=5cm]{res/zenodo.17156.png}                      \\[5pt]
-    \url{http://dx.doi.org/10.5281/zenodo.17156}                           \\[15pt]
+    \includegraphics[width=5cm]{res/zenodo.png}                            \\[5pt]
+    \url{http://dx.doi.org/10.5281/zenodo.17157}                           \\[15pt]
 	{\bfseries License:} This work is covered by                           \\[10pt]
 	{\bfseries Creative Commons: Attribution-ShareAlike 4.0 International} \\[10pt]
 	{\bfseries (CC BY-SA 4.0)}                                             \\[10pt]
