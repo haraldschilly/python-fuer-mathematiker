@@ -35,3 +35,7 @@ defaults to [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 [![Analytics](https://ga-beacon.appspot.com/UA-5245376-11/python-fuer-mathematiker?flat)](https://github.com/igrigorik/ga-beacon)
 
+DOI
+--------
+
+[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.17156.svg)](http://dx.doi.org/10.5281/zenodo.17156)
