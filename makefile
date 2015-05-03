@@ -5,6 +5,6 @@ all: style
 	$(MAKE) -C doc/
 
 style:
-	find -name "*.py" -print0 | xargs --null autopep8 --aggressive -i --max-line-length=120
+	find -name "*.py" -print0 | xargs --null autopep8 -i --ignore=E501 # long lines
 
 
