@@ -1,10 +1,10 @@
-# Erstes Hauptstück
+## Bundes-Verfassungsgesetz
 
-## Allgemeine Bestimmungen. Europäische Union
+### Allgemeine Bestimmungen. Europäische Union
 
-### A. Allgemeine Bestimmungen
+**Artikel 1.**
 
-**Artikel 1.** Österreich ist eine demokratische Republik. Ihr Recht geht vom Volk aus.
+Österreich ist eine demokratische Republik. Ihr Recht geht vom Volk aus.
 
 **Artikel 2.**
 
