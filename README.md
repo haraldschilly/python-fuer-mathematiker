@@ -1,6 +1,8 @@
 Python für Mathematiker
 =======================
 
+[![Join the chat at https://gitter.im/haraldschilly/python-fuer-mathematiker](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/haraldschilly/python-fuer-mathematiker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Ein Schnelleinstieg in Python
 -----------------------------
 
