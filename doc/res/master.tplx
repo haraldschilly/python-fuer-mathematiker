@@ -163,13 +163,14 @@
 \begin{python}
 print(r'\begin{Verbatim}[fontsize=\normalsize]')
 from subprocess import check_output
-t = check_output(['date', '--iso-8601=minutes'])
+co = lambda x : check_output(x).decode('utf-8')
+t = co(['date', '--iso-8601=minutes'])
 print(r'Build time:      ' + t[:-1])
-print(r'Hostname:        ' + check_output(['hostname'])[:-1])
-x = check_output(['git', 'rev-parse', 'HEAD'])
+print(r'Hostname:        ' + co(['hostname'])[:-1])
+x = co(['git', 'rev-parse', 'HEAD'])
 print("Git HEAD:        " + x[:-1])
 print("Repository:      https://github.com/haraldschilly/python-fuer-mathematiker")
-print("PDFLaTeX:        " + check_output(['pdflatex', '--version']).splitlines()[0])
+print("PDFLaTeX:        " + co(['pdflatex', '--version']).splitlines()[0])
 import sys
 print("Python:          " + sys.version.splitlines()[0])
 print("                 " + sys.version.splitlines()[1])
@@ -177,6 +178,7 @@ libs = [("IPython", "IPython"),
         ("NumPy", "numpy"),
         ("SciPy", "scipy"),
         ("Matplotlib", "matplotlib"),
+        ("Pillow", "PIL"),
         ("SymPy", "sympy"),
         ("mpmath", "mpmath"),
         ("Pandas", "pandas"),
@@ -189,6 +191,8 @@ libs = [("IPython", "IPython"),
         ("CSV", "csv"),
         ("SQLite3", "sqlite3"),
         ("BeautifulSoup", "bs4"),
+        ("Requests", "requests"),
+        ("PS Util", "psutil"),
         ("Cython", "cython")]
 import importlib
 for name, libname in libs:
@@ -196,7 +200,10 @@ for name, libname in libs:
     try:
         vers = lib.__version__
     except:
-        vers = lib.version
+        try:
+            vers = lib.version
+        except:
+            vers = lib.VERSION
     print("{:16s} {}".format(name + ":", vers))
 print(r'\end{Verbatim}')
 \end{python}
