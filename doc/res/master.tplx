@@ -193,6 +193,8 @@ libs = [("IPython", "IPython"),
         ("BeautifulSoup", "bs4"),
         ("Requests", "requests"),
         ("PS Util", "psutil"),
+        ("Line Profiler", "line_profiler"),
+        ("Memory Profiler", "memory_profiler"),
         ("Cython", "cython")]
 import importlib
 for name, libname in libs:
@@ -203,7 +205,10 @@ for name, libname in libs:
         try:
             vers = lib.version
         except:
-            vers = lib.VERSION
+            try:
+                vers = lib.VERSION
+            except:
+                vers = "?, but it is installed"
     print("{:16s} {}".format(name + ":", vers))
 print(r'\end{Verbatim}')
 \end{python}
