@@ -27,6 +27,7 @@ build:
 
 clean:
 	latexmk -c
+	find . -name '*.synctex.gz' -delete
 
 # convert all partial tex files
 %.tex: %.ipynb res/partial.tplx
