@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+
 def parse_args():
     import argparse
     parser = argparse.ArgumentParser()
@@ -14,7 +15,7 @@ def parse_args():
 if __name__ == "__main__":
     args = parse_args()
     print("Arguments: %s" % args)
-    
+
     x = args.x
     if args.negate:
         x = -x

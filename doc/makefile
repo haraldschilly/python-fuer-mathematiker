@@ -11,7 +11,7 @@
 
 MASTER=master
 PARTS_PAT  =?-?-*
-IPYTHON    ?= ipython
+IPYTHON    ?= jupyter
 PARTS      := $(filter-out $(MASTER).ipynb 0-0-index.ipynb, $(wildcard *.ipynb))
 PARTS_TEX  := $(patsubst %.ipynb,%.tex,$(PARTS))
 REVISION   := $(shell git rev-parse --short HEAD)
